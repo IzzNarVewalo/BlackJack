@@ -26,7 +26,6 @@ import java.util.Map;
 public class BenutzerErstellen implements Screen {
     private Stage stage;
     private TextField benutzername, passwort, passwortWiederholen;
-    private String salt = new String("$K?1/S_@2%e#el!3>s#5BRo$a1+");
 
     @Override
     public void show() {
@@ -114,6 +113,7 @@ public class BenutzerErstellen implements Screen {
     private String hashen(TextField pw){
         MessageDigest md5;
         String salted, hashed = null;
+        String salt = "$K?1/S_@2%e#el!3>s#5BRo$a1+";
         salted = pw.getText() + salt;
         try {
             md5 = MessageDigest.getInstance("MD5");
